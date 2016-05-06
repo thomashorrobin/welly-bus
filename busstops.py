@@ -1,5 +1,6 @@
 import requests
 import json
+import prettytable
 
 def printBusStopTimes(busstop):
 	url = "https://www.metlink.org.nz/api/v1/StopDepartures/" + str(busstop)
@@ -10,11 +11,14 @@ def printBusStopTimes(busstop):
 		jData = json.loads(myResponse.content.decode())
 
 		print(jData["Stop"]["Name"] + "(" + jData["Stop"]["Sms"] + ")")
-
+		
+		tb = prettytable.PrettyTable(['Bus No', 'Destination', 'Est departure'])
+		
 		for service in jData["Services"]:
-		    sec = int(service["DisplayDepartureSeconds"])
-		    minutes =  round(sec / 60)
-		    print('{0} ({2}min) {1}'.format(service["ServiceID"],service["DestinationStopName"],minutes))
+		    departTime = divmod(int(service["DisplayDepartureSeconds"]), 60)
+		    tb.add_row([service["ServiceID"], service["DestinationStopName"], str(departTime[0]) + "mins " + str(departTime[1]) + "secs"])
+		
+		print(tb)
 	else:
 	  # If response code is not ok (200), print the resulting http error code with description
 		myResponse.raise_for_status()
