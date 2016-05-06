@@ -13,8 +13,8 @@ def printBusStopTimes(busstop):
 
 		for service in jData["Services"]:
 		    sec = int(service["DisplayDepartureSeconds"])
-		    min =  round(sec / 60)
-		    print('{0} ({2}min) {1}'.format(service["ServiceID"],service["DestinationStopName"],min))
+		    minutes =  round(sec / 60)
+		    print('{0} ({2}min) {1}'.format(service["ServiceID"],service["DestinationStopName"],minutes))
 	else:
 	  # If response code is not ok (200), print the resulting http error code with description
 		myResponse.raise_for_status()
