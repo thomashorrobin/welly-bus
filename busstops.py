@@ -4,7 +4,7 @@ import prettytable
 import liststops
 
 def grepBusStops(search_term):
-	url = "http://localhost:1337/grep/" + search_term
+	url = "http://104.236.202.106:1337/grep/" + search_term
 
 	myResponse = requests.get(url)
 
