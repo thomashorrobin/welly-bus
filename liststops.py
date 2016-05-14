@@ -2,7 +2,7 @@ import csv
 import prettytable
 import os.path
 
-fname = "stops.csv"
+fname = "~/.metlink-stops.csv"
 fileexists = os.path.isfile(fname)
 
 def listStops():
