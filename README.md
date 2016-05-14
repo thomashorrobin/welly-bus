@@ -28,8 +28,7 @@ To grep the avilible bus stops on the server run this command:
 
     $ python main.py grep <your search term>
 
-For example if your stop number is on Lampton Quay you'd run:
+For example if your stop number is on Lambton Quay you'd run:
 
-    $ python main.py grep Lampton
+    $ python main.py grep Lambton
 
-/grep is case sensitive/
