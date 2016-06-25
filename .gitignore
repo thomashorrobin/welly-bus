@@ -1,2 +1,5 @@
 stops.csv
 *.pyc
+build/*
+main.spec
+dist/main
