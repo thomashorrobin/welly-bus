@@ -13,4 +13,4 @@ elif subcmd == "list":
 elif subcmd == "grep":
     busstops.grepBusStops(sys.argv[2])
 else:
-    print("failure")
+    busstops.printBusStopTimes(sys.argv[1])
