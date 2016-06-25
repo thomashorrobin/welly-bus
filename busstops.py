@@ -10,6 +10,10 @@ def grepBusStops(search_term):
 
 	if(myResponse.ok):
 		jData = json.loads(myResponse.content.decode())
+
+		if(jData == None): # if no stop is found the api will return a json file containing "null"
+			print("No stops matched: " + search_term)
+			return
 		
 		tb = prettytable.PrettyTable(['Stop Number', 'Name'])
 		
