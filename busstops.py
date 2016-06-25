@@ -4,17 +4,17 @@ import prettytable
 import liststops
 
 def grepBusStops(search_term):
-	url = "http://104.236.117.15:1337/stops?search=" + search_term
+	url = "https://www.metlink.org.nz/api/v1/StopSearch/" + search_term
 
 	myResponse = requests.get(url)
 
 	if(myResponse.ok):
 		jData = json.loads(myResponse.content.decode())
 		
-		tb = prettytable.PrettyTable(['Stop Number', 'Name', 'Fare zone'])
+		tb = prettytable.PrettyTable(['Stop Number', 'Name'])
 		
 		for stop in jData:
-		    tb.add_row([stop["Sms"], stop["Name"], stop["Farezone"]])
+		    tb.add_row([stop["Sms"], stop["Name"]])
 		
 		print(tb)
 	else:
