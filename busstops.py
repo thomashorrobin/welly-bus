@@ -46,6 +46,7 @@ def printBusStopTimes(busstop):
 		print("\n")
 
 		liststops.addStopToList(stopNumber, stopName, farezone)
+	elif(myResponse.status_code == 404):
+		print(busstop + " is not a valid busstop according to Metlink. Please try again.")
 	else:
-	  # If response code is not ok (200), print the resulting http error code with description
-		myResponse.raise_for_status()
+		print("The server returned an error: " + str(myResponse.status_code))
